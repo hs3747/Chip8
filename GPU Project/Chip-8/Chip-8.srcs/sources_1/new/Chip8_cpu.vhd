@@ -1,43 +1,40 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 03/07/2026 04:03:08 PM
--- Design Name: 
--- Module Name: Chip8_cpu - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity Chip8_cpu is
---  Port ( );
+    Port (
+        clk        : in  std_logic;
+        reset      : in  std_logic;
+        pc_out     : out std_logic_vector(11 downto 0)
+    );
 end Chip8_cpu;
 
-architecture Behavioral of Chip8_cpu is
-
+architecture Structural of Chip8_cpu is
+    signal tick_en_sig    : std_logic;
+    signal pc_current_sig : std_logic_vector(11 downto 0);
+    signal pc_next_sig    : std_logic_vector(11 downto 0);
 begin
+    clk_unit : entity work.clock_enable
+        port map (
+            clk     => clk,
+            reset   => reset,
+            tick_en => tick_en_sig
+        );
 
+    pc_next_unit : entity work.pc_next_logic
+        port map (
+            pc_current => pc_current_sig,
+            pc_next    => pc_next_sig
+        );
 
-end Behavioral;
+    pc_reg_unit : entity work.pc_register
+        port map (
+            clk        => clk,
+            reset      => reset,
+            tick_en    => tick_en_sig,
+            pc_next    => pc_next_sig,
+            pc_current => pc_current_sig
+        );
+
+    pc_out <= pc_current_sig;
+end Structural;
