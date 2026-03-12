@@ -2,11 +2,11 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity Chip8_cpu is
-    Port (
-        clk        : in  std_logic;
-        reset      : in  std_logic;
-        pc_out     : out std_logic_vector(11 downto 0)
-    );
+Port (
+    clk    : in std_logic;
+    reset  : in std_logic;
+    pc_out : out std_logic_vector(11 downto 0)
+);
 end Chip8_cpu;
 
 architecture Structural of Chip8_cpu is
@@ -14,7 +14,10 @@ architecture Structural of Chip8_cpu is
     signal pc_current_sig : std_logic_vector(11 downto 0);
     signal pc_next_sig    : std_logic_vector(11 downto 0);
 begin
-    clk_unit : entity work.clock_enable
+    tick_unit : entity work.clock_enable
+        generic map (
+            DIVISOR => 100000000
+        )
         port map (
             clk     => clk,
             reset   => reset,

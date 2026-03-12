@@ -23,3 +23,19 @@
 #-----------------------------------------------------------
 start_gui
 open_project {C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.xpr}
+update_compile_order -fileset sources_1
+close [ open {C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/pc_next_logic.vhd} w ]
+add_files {{C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/pc_next_logic.vhd}}
+close [ open {C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/clock_enable.vhd} w ]
+add_files {{C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/clock_enable.vhd}}
+close [ open {C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/pc_register.vhd} w ]
+add_files {{C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/pc_register.vhd}}
+update_compile_order -fileset sources_1
+remove_files  {{C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/keypad_decodeer.vhd}}
+file delete -force {C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/keypad_decodeer.vhd}
+close [ open {C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/keypad_decoder.vhd} w ]
+add_files {{C:/Users/YUnaldo/Desktop/CHIP8/Chip8/GPU Project/Chip-8/Chip-8.srcs/sources_1/new/keypad_decoder.vhd}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
