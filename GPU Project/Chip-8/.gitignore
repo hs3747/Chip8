@@ -1,0 +1,26 @@
+# Vivado log / temp files
+*.jou
+*.log
+*.str
+*.tmp
+*.backup.jou
+*.backup.log
+dfx_runtime.txt
+
+# Vivado generated folders
+.Xil/
+*.cache/
+*.hw/
+*.runs/
+*.sim/
+*.gen/
+*.ip_user_files/
+
+# Wave / local machine files
+*.wdf
+*.wpc
+*.lpr
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
