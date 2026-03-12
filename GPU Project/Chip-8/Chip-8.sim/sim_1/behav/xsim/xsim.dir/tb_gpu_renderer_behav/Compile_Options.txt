@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_gpu_renderer_behav" "xil_defaultlib.tb_gpu_renderer" -log "elaborate.log" 
